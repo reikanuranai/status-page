@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>ステータスページ</title>
+  </head>
+  <body>
+    <h1 id="status">読み込み中...</h1>
+
+    <script>
+      fetch("https://script.google.com/macros/s/AKfycbzgHMl08jj5om32SYvEOijGrfZDEfMb_W4R6KI_sqmwEopF_HSbNgfvsom_qcjyfItn0A/exec")
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("status").textContent = data.status;
+        })
+        .catch(error => {
+          document.getElementById("status").textContent = "エラー";
+        });
+    </script>
+  </body>
+</html>
